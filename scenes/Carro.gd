@@ -30,3 +30,8 @@ func _physics_process(delta):
 	
 	if global_position.x < -100 or global_position.x > 1300:
 		reset()
+
+
+func _on_Carro_body_entered(body):
+	if body is Player:
+		body.die()

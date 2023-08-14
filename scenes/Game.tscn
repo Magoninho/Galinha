@@ -1,154 +1,68 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/Material freeway/wallpaperfreeway.png" type="Texture" id=1]
 [ext_resource path="res://scenes/Galinha.tscn" type="PackedScene" id=2]
-[ext_resource path="res://scenes/Carro.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/CarManager.tscn" type="PackedScene" id=4]
+[ext_resource path="res://scenes/Game.gd" type="Script" id=3]
+[ext_resource path="res://scenes/GameOver.tscn" type="PackedScene" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 655.25, 17 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 11, 371 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 10, 644.5 )
 
 [node name="Game" type="Node2D"]
+script = ExtResource( 3 )
 
 [node name="background" type="TextureRect" parent="."]
 margin_right = 1283.0
 margin_bottom = 722.0
 texture = ExtResource( 1 )
 expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="Galinha" parent="." instance=ExtResource( 2 )]
 position = Vector2( 622, 691 )
 scale = Vector2( 0.388611, 0.388611 )
+collision_layer = 3
 
-[node name="CarManager" parent="." instance=ExtResource( 4 )]
-speed = 320
-left = true
+[node name="Finish" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
 
-[node name="Carro" parent="CarManager" instance=ExtResource( 3 )]
-position = Vector2( 322, 167 )
-scale = Vector2( 0.253621, 0.253621 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Finish"]
+position = Vector2( 644.75, 10 )
+shape = SubResource( 1 )
 
-[node name="Carro2" parent="CarManager" instance=ExtResource( 3 )]
-position = Vector2( 519, 165 )
-scale = Vector2( 0.253621, 0.253621 )
+[node name="Wall" type="StaticBody2D" parent="."]
 
-[node name="Carro3" parent="CarManager" instance=ExtResource( 3 )]
-position = Vector2( 742, 164 )
-scale = Vector2( 0.253621, 0.253621 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+position = Vector2( 1, 361 )
+shape = SubResource( 2 )
 
-[node name="Carro4" parent="CarManager" instance=ExtResource( 3 )]
-position = Vector2( 962, 164 )
-scale = Vector2( 0.253621, 0.253621 )
+[node name="Wall2" type="StaticBody2D" parent="."]
+position = Vector2( 1282, 0 )
 
-[node name="Carro5" parent="CarManager" instance=ExtResource( 3 )]
-position = Vector2( 960, 164 )
-scale = Vector2( 0.253621, 0.253621 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
+position = Vector2( 1, 361 )
+shape = SubResource( 2 )
 
-[node name="CarManager2" parent="." instance=ExtResource( 4 )]
-speed = 240
-left = true
+[node name="Wall3" type="StaticBody2D" parent="."]
+position = Vector2( 729, 733 )
+rotation = 1.57079
 
-[node name="Carro" parent="CarManager2" instance=ExtResource( 3 )]
-position = Vector2( 180, 218 )
-scale = Vector2( 0.253621, 0.253621 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall3"]
+position = Vector2( 0.999695, 85.5 )
+shape = SubResource( 3 )
 
-[node name="Carro2" parent="CarManager2" instance=ExtResource( 3 )]
-position = Vector2( 377, 216 )
-scale = Vector2( 0.253621, 0.253621 )
+[node name="GameOver" parent="." instance=ExtResource( 4 )]
+visible = false
+galinha_path = NodePath("../Galinha")
 
-[node name="Carro4" parent="CarManager2" instance=ExtResource( 3 )]
-position = Vector2( 820, 215 )
-scale = Vector2( 0.253621, 0.253621 )
-
-[node name="CarManager3" parent="." instance=ExtResource( 4 )]
-position = Vector2( 114, 164 )
-speed = 340
-
-[node name="Carro" parent="CarManager3" instance=ExtResource( 3 )]
-position = Vector2( 180, 218 )
-scale = Vector2( 0.253621, 0.253621 )
-
-[node name="Carro2" parent="CarManager3" instance=ExtResource( 3 )]
-position = Vector2( 377, 216 )
-scale = Vector2( 0.253621, 0.253621 )
-
-[node name="Carro3" parent="CarManager3" instance=ExtResource( 3 )]
-position = Vector2( 581, 218 )
-scale = Vector2( 0.253621, 0.253621 )
-
-[node name="Carro4" parent="CarManager3" instance=ExtResource( 3 )]
-position = Vector2( 820, 215 )
-scale = Vector2( 0.253621, 0.253621 )
-
-[node name="Carro5" parent="CarManager3" instance=ExtResource( 3 )]
-position = Vector2( 1010, 217 )
-scale = Vector2( 0.253621, 0.253621 )
-
-[node name="CarManager4" parent="." instance=ExtResource( 4 )]
-position = Vector2( -28, 280 )
-speed = 300
-
-[node name="Carro" parent="CarManager4" instance=ExtResource( 3 )]
-position = Vector2( 180, 218 )
-scale = Vector2( 0.253621, 0.253621 )
-
-[node name="Carro2" parent="CarManager4" instance=ExtResource( 3 )]
-position = Vector2( 377, 216 )
-scale = Vector2( 0.253621, 0.253621 )
-
-[node name="Carro3" parent="CarManager4" instance=ExtResource( 3 )]
-position = Vector2( 567, 214 )
-scale = Vector2( 0.253621, 0.253621 )
-
-[node name="Carro4" parent="CarManager4" instance=ExtResource( 3 )]
-position = Vector2( 820, 215 )
-scale = Vector2( 0.253621, 0.253621 )
-
-[node name="CarManager5" parent="." instance=ExtResource( 4 )]
-position = Vector2( -128, 222 )
-speed = 150
-
-[node name="Carro" parent="CarManager5" instance=ExtResource( 3 )]
-position = Vector2( 180, 218 )
-scale = Vector2( 0.253621, 0.253621 )
-
-[node name="Carro2" parent="CarManager5" instance=ExtResource( 3 )]
-position = Vector2( 377, 216 )
-scale = Vector2( 0.253621, 0.253621 )
-
-[node name="Carro3" parent="CarManager5" instance=ExtResource( 3 )]
-position = Vector2( 567, 214 )
-scale = Vector2( 0.253621, 0.253621 )
-
-[node name="Carro4" parent="CarManager5" instance=ExtResource( 3 )]
-position = Vector2( 820, 215 )
-scale = Vector2( 0.253621, 0.253621 )
-
-[node name="Carro5" parent="CarManager5" instance=ExtResource( 3 )]
-position = Vector2( 1168, 217 )
-scale = Vector2( 0.253621, 0.253621 )
-
-[node name="CarManager6" parent="." instance=ExtResource( 4 )]
-position = Vector2( 166, 392 )
-speed = 170
-
-[node name="Carro" parent="CarManager6" instance=ExtResource( 3 )]
-position = Vector2( 180, 218 )
-scale = Vector2( 0.253621, 0.253621 )
-
-[node name="Carro6" parent="CarManager6" instance=ExtResource( 3 )]
-position = Vector2( -24, 216 )
-scale = Vector2( 0.253621, 0.253621 )
-
-[node name="Carro2" parent="CarManager6" instance=ExtResource( 3 )]
-position = Vector2( 377, 216 )
-scale = Vector2( 0.253621, 0.253621 )
-
-[node name="Carro3" parent="CarManager6" instance=ExtResource( 3 )]
-position = Vector2( 573, 220 )
-scale = Vector2( 0.253621, 0.253621 )
-
-[node name="Carro4" parent="CarManager6" instance=ExtResource( 3 )]
-position = Vector2( 820, 215 )
-scale = Vector2( 0.253621, 0.253621 )
-
-[node name="Carro5" parent="CarManager6" instance=ExtResource( 3 )]
-position = Vector2( 1034, 217 )
-scale = Vector2( 0.253621, 0.253621 )
+[connection signal="dead" from="Galinha" to="." method="_on_Galinha_dead"]
+[connection signal="body_entered" from="Finish" to="." method="_on_Finish_body_entered"]

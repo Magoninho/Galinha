@@ -13,16 +13,26 @@ _global_script_classes=[ {
 "class": "Carro",
 "language": "GDScript",
 "path": "res://scenes/Carro.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://scenes/Galinha.gd"
 } ]
 _global_script_class_icons={
-"Carro": ""
+"Carro": "",
+"Player": ""
 }
 
 [application]
 
 config/name="Freeway"
-run/main_scene="res://scenes/Game.tscn"
+run/main_scene="res://scenes/levels/Level1.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Global="*res://global.gd"
 
 [display]
 
