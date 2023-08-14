@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/menu.mp3-c84a2fb72aa7eb8c4a80f3992769a8f3.mp3str"
+
+[deps]
+
+source_file="res://assets/Material freeway/sons/menu.mp3"
+dest_files=[ "res://.import/menu.mp3-c84a2fb72aa7eb8c4a80f3992769a8f3.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

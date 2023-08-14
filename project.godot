@@ -27,12 +27,13 @@ _global_script_class_icons={
 [application]
 
 config/name="Freeway"
-run/main_scene="res://scenes/levels/Level1.tscn"
+run/main_scene="res://scenes/MainMenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Global="*res://global.gd"
+MusicController="*res://scenes/MusicController.tscn"
 
 [display]
 
