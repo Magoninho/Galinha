@@ -77,3 +77,5 @@ scale = Vector2( 0.253621, 0.253621 )
 [node name="Carro5" parent="CarManager3" index="4" instance=ExtResource( 2 )]
 position = Vector2( 953, 440 )
 scale = Vector2( 0.253621, 0.253621 )
+
+[node name="Resetables" type="Node2D" parent="." index="13"]
