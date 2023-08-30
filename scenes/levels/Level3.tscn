@@ -6,7 +6,10 @@
 
 [node name="Game" instance=ExtResource( 1 )]
 
-[node name="CarManager" parent="." index="6" instance=ExtResource( 3 )]
+[node name="GameOver" parent="." index="6"]
+resetables_path = NodePath("")
+
+[node name="CarManager" parent="." index="7" instance=ExtResource( 3 )]
 speed = 320
 left = true
 
@@ -30,7 +33,7 @@ scale = Vector2( 0.253621, 0.253621 )
 position = Vector2( 964, 164 )
 scale = Vector2( 0.253621, 0.253621 )
 
-[node name="CarManager2" parent="." index="7" instance=ExtResource( 3 )]
+[node name="CarManager2" parent="." index="8" instance=ExtResource( 3 )]
 speed = 400
 left = true
 
@@ -54,7 +57,7 @@ scale = Vector2( 0.253621, 0.253621 )
 position = Vector2( 953, 440 )
 scale = Vector2( 0.253621, 0.253621 )
 
-[node name="CarManager3" parent="." index="8" instance=ExtResource( 3 )]
+[node name="CarManager3" parent="." index="9" instance=ExtResource( 3 )]
 position = Vector2( -128, -166 )
 left = true
 
@@ -77,5 +80,3 @@ scale = Vector2( 0.253621, 0.253621 )
 [node name="Carro5" parent="CarManager3" index="4" instance=ExtResource( 2 )]
 position = Vector2( 953, 440 )
 scale = Vector2( 0.253621, 0.253621 )
-
-[node name="Resetables" type="Node2D" parent="." index="13"]

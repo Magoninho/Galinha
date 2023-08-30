@@ -8,6 +8,7 @@ extents = Vector2( 81, 121 )
 
 [node name="Carro" type="Area2D"]
 rotation = -1.5708
+z_index = 1
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/sprite_1.png-2995c50e259186ccff3a6dcda80d2b5e.stex"
+path="res://.import/sprite_2.png-193ee9c0ee9aaa937f5627d8df67d184.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Material freeway/galinha/cima/sprite_1.png"
-dest_files=[ "res://.import/sprite_1.png-2995c50e259186ccff3a6dcda80d2b5e.stex" ]
+source_file="res://assets/Material freeway/galinha/baixo/white/sprite_2.png"
+dest_files=[ "res://.import/sprite_2.png-193ee9c0ee9aaa937f5627d8df67d184.stex" ]
 
 [params]
 

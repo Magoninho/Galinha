@@ -7,7 +7,7 @@
 
 [node name="Game" instance=ExtResource( 1 )]
 
-[node name="Carros" type="Node2D" parent="." index="2"]
+[node name="Carros" type="Node2D" parent="." index="3"]
 
 [node name="CarManager" parent="Carros" index="0" instance=ExtResource( 4 )]
 speed = 320

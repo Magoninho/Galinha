@@ -1,18 +1,28 @@
 extends Node2D
 
+var galinhas = []
+
 func _ready():
 	$UI/Level.text = "LEVEL " + str(Global.level)
-
+	for body in $Resetables.get_children():
+		if body is Player:
+			galinhas.append(body)
+	
 func _on_Finish_body_entered(body):
 	$SFX/Win.play()
-	$Resetables/Galinha.set_physics_process(false)
+	for c in $Resetables.get_children():
+		c.set_physics_process(false)
 	$Delay.start()
 
 
 func _on_Galinha_dead():
 	if not $Resetables/Galinha.dead:
 		$SFX/Death.playing = true
-	$GameOver.visible = true
+	
+	if galinhas[0].dead and galinhas[1].dead:
+		$GameOver.visible = true
+		print("alkçsdjf")
+	
 
 
 func _on_Delay_timeout():

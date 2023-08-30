@@ -89,10 +89,17 @@ stream = ExtResource( 6 )
 [node name="Resetables" type="Node2D" parent="."]
 
 [node name="Galinha" parent="Resetables" instance=ExtResource( 2 )]
-position = Vector2( 622, 691 )
+position = Vector2( 782, 695 )
 scale = Vector2( 0.388611, 0.388611 )
 collision_layer = 3
+
+[node name="Galinha2" parent="Resetables" instance=ExtResource( 2 )]
+position = Vector2( 424, 693 )
+scale = Vector2( 0.388611, 0.388611 )
+collision_layer = 3
+player_2 = true
 
 [connection signal="body_entered" from="Finish" to="." method="_on_Finish_body_entered"]
 [connection signal="timeout" from="Delay" to="." method="_on_Delay_timeout"]
 [connection signal="dead" from="Resetables/Galinha" to="." method="_on_Galinha_dead"]
+[connection signal="dead" from="Resetables/Galinha2" to="." method="_on_Galinha_dead"]
