@@ -37,6 +37,7 @@ func reset():
 		position.y = 695
 
 func die():
+	if dead: return
 	dead = true
 	self.emit_signal("dead")
 	self.set_physics_process(false)

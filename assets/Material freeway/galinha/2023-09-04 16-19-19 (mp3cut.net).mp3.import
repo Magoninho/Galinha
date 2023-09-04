@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/2023-09-04 16-19-19 (mp3cut.net).mp3-a2bf2c0a05552de1df49bc45f90faa73.mp3str"
+
+[deps]
+
+source_file="res://assets/Material freeway/galinha/2023-09-04 16-19-19 (mp3cut.net).mp3"
+dest_files=[ "res://.import/2023-09-04 16-19-19 (mp3cut.net).mp3-a2bf2c0a05552de1df49bc45f90faa73.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

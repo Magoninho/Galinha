@@ -15,4 +15,5 @@ func _process(delta):
 
 func _on_Button_pressed():
 	if self.visible:
+		self.visible = false
 		self.reset_all_resetables()
