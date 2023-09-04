@@ -21,7 +21,6 @@ func _on_Galinha_dead():
 	
 	if galinhas[0].dead and galinhas[1].dead:
 		$GameOver.visible = true
-		print("alkçsdjf")
 	
 
 
