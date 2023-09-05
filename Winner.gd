@@ -12,4 +12,9 @@ func _ready():
 
 
 func _on_Button_pressed():
+	Global.level = 1
+	Global.player1_score = 0
+	Global.player2_score = 0
+	
 	get_tree().change_scene("res://scenes/MainMenu.tscn")
+	
