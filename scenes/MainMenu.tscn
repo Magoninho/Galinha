@@ -36,13 +36,21 @@ position = Vector2( 900.333, 119 )
 scale = Vector2( 1.93333, 1.93333 )
 texture = ExtResource( 3 )
 
-[node name="Label" type="Label" parent="."]
+[node name="1Player" type="Label" parent="."]
 margin_left = 690.0
 margin_top = 409.0
 margin_right = 1152.0
 margin_bottom = 451.0
 custom_fonts/font = SubResource( 1 )
-text = "PRESS START"
+text = ">1 PLAYER"
+
+[node name="2Player" type="Label" parent="."]
+margin_left = 690.0
+margin_top = 480.0
+margin_right = 1152.0
+margin_bottom = 522.0
+custom_fonts/font = SubResource( 1 )
+text = " 2 PLAYERS"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )

@@ -1,0 +1,85 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://assets/Material freeway/PressStart2P-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/Material freeway/DALL·E 2023-09-07 14.14.58 - complete the image.png" type="Texture" id=2]
+[ext_resource path="res://scenes/Finish.gd" type="Script" id=3]
+[ext_resource path="res://assets/Material freeway/sons/winner.mp3" type="AudioStream" id=4]
+[ext_resource path="res://assets/Material freeway/galinha/dance/frame_5_delay-0.06s.png" type="Texture" id=5]
+[ext_resource path="res://assets/Material freeway/galinha/dance/frame_7_delay-0.06s.png" type="Texture" id=6]
+[ext_resource path="res://assets/Material freeway/galinha/dance/frame_6_delay-0.06s.png" type="Texture" id=7]
+[ext_resource path="res://assets/Material freeway/galinha/dance/frame_2_delay-0.06s.png" type="Texture" id=8]
+[ext_resource path="res://assets/Material freeway/galinha/dance/frame_4_delay-0.06s.png" type="Texture" id=9]
+[ext_resource path="res://assets/Material freeway/galinha/dance/frame_3_delay-0.06s.png" type="Texture" id=10]
+[ext_resource path="res://assets/Material freeway/galinha/dance/frame_0_delay-0.06s.png" type="Texture" id=11]
+[ext_resource path="res://assets/Material freeway/galinha/dance/frame_1_delay-0.06s.png" type="Texture" id=12]
+[ext_resource path="res://assets/Material freeway/galinha/dance/frame_8_delay-0.06s.png" type="Texture" id=13]
+
+[sub_resource type="StyleBoxFlat" id=5]
+bg_color = Color( 0, 0, 0, 0.392157 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 64
+outline_size = 4
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 13 ) ],
+"loop": true,
+"name": "default",
+"speed": 15.0
+} ]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="bg" type="Sprite" parent="."]
+position = Vector2( 643.125, 294.125 )
+scale = Vector2( 1.2478, 1.2478 )
+texture = ExtResource( 2 )
+
+[node name="Panel" type="Panel" parent="."]
+margin_left = 84.0
+margin_top = 102.0
+margin_right = 577.0
+margin_bottom = 557.0
+custom_styles/panel = SubResource( 5 )
+
+[node name="Button" type="Button" parent="."]
+margin_left = 182.0
+margin_top = 443.0
+margin_right = 444.0
+margin_bottom = 514.0
+custom_fonts/font = SubResource( 1 )
+text = "Menu"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+margin_left = -253.0
+margin_top = 88.0
+margin_right = 941.0
+margin_bottom = 390.0
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "
+[center]Você
+ganhou![/center]"
+text = "
+Você
+ganhou!"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+autoplay = true
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 1026, 398 )
+frames = SubResource( 4 )
+frame = 4
+playing = true
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

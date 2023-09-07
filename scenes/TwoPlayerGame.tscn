@@ -1,0 +1,213 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://assets/Material freeway/wallpaperfreeway.png" type="Texture" id=1]
+[ext_resource path="res://scenes/Galinha.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scenes/TwoPlayerGame.gd" type="Script" id=3]
+[ext_resource path="res://scenes/GameOver.tscn" type="PackedScene" id=4]
+[ext_resource path="res://assets/Material freeway/sons/colide.wav" type="AudioStream" id=5]
+[ext_resource path="res://assets/Material freeway/sons/ganhou.wav" type="AudioStream" id=6]
+[ext_resource path="res://assets/Material freeway/PressStart2P-Regular.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://assets/Material freeway/galinha/chicken2.png" type="Texture" id=8]
+[ext_resource path="res://assets/Material freeway/galinha/chicken.png" type="Texture" id=9]
+[ext_resource path="res://scenes/CarManager.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scenes/Carro.tscn" type="PackedScene" id=11]
+
+[sub_resource type="DynamicFont" id=5]
+size = 32
+font_data = ExtResource( 7 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 655.25, 17 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 11, 371 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 10, 644.5 )
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="background" type="TextureRect" parent="."]
+margin_right = 1283.0
+margin_bottom = 722.0
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Player2Score" type="RichTextLabel" parent="UI"]
+margin_left = 1094.0
+margin_top = 31.0
+margin_right = 1176.0
+margin_bottom = 99.0
+custom_fonts/normal_font = SubResource( 5 )
+text = "0"
+
+[node name="Player1Score" type="RichTextLabel" parent="UI"]
+margin_left = 155.0
+margin_top = 31.0
+margin_right = 237.0
+margin_bottom = 99.0
+custom_fonts/normal_font = SubResource( 5 )
+text = "0"
+
+[node name="Chicken" type="Sprite" parent="UI"]
+position = Vector2( 84, 47 )
+scale = Vector2( 2.6875, 2.6875 )
+texture = ExtResource( 9 )
+flip_h = true
+
+[node name="Chicken2" type="Sprite" parent="UI"]
+position = Vector2( 1201, 48 )
+scale = Vector2( 2.6875, 2.6875 )
+texture = ExtResource( 8 )
+
+[node name="Finish" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Finish"]
+position = Vector2( 644.75, 10 )
+shape = SubResource( 1 )
+
+[node name="Wall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+position = Vector2( 1, 361 )
+shape = SubResource( 2 )
+
+[node name="Wall2" type="StaticBody2D" parent="."]
+position = Vector2( 1282, 0 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
+position = Vector2( 1, 361 )
+shape = SubResource( 2 )
+
+[node name="Wall3" type="StaticBody2D" parent="."]
+position = Vector2( 729, 733 )
+rotation = 1.57079
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall3"]
+position = Vector2( 0.999695, 85.5 )
+shape = SubResource( 3 )
+
+[node name="GameOver" parent="." instance=ExtResource( 4 )]
+visible = false
+resetables_path = NodePath("../Resetables")
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="Death" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 5 )
+
+[node name="Win" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource( 6 )
+
+[node name="Delay" type="Timer" parent="."]
+one_shot = true
+
+[node name="Carros" type="Node2D" parent="."]
+
+[node name="CarManager" parent="Carros" instance=ExtResource( 10 )]
+speed = 320
+left = true
+
+[node name="Carro" parent="Carros/CarManager" instance=ExtResource( 11 )]
+position = Vector2( 306, 443 )
+scale = Vector2( 0.253621, 0.253621 )
+
+[node name="Carro2" parent="Carros/CarManager" instance=ExtResource( 11 )]
+position = Vector2( 519, 165 )
+scale = Vector2( 0.253621, 0.253621 )
+
+[node name="Carro3" parent="Carros/CarManager" instance=ExtResource( 11 )]
+position = Vector2( 718, 443 )
+scale = Vector2( 0.253621, 0.253621 )
+
+[node name="Carro4" parent="Carros/CarManager" instance=ExtResource( 11 )]
+position = Vector2( 962, 164 )
+scale = Vector2( 0.253621, 0.253621 )
+
+[node name="CarManager2" parent="Carros" instance=ExtResource( 10 )]
+position = Vector2( 160, 167 )
+speed = 320
+left = true
+
+[node name="Carro" parent="Carros/CarManager2" instance=ExtResource( 11 )]
+position = Vector2( 306, 443 )
+scale = Vector2( 0.253621, 0.253621 )
+
+[node name="Carro2" parent="Carros/CarManager2" instance=ExtResource( 11 )]
+position = Vector2( 519, 165 )
+scale = Vector2( 0.253621, 0.253621 )
+
+[node name="Carro3" parent="Carros/CarManager2" instance=ExtResource( 11 )]
+position = Vector2( 718, 443 )
+scale = Vector2( 0.253621, 0.253621 )
+
+[node name="Carro4" parent="Carros/CarManager2" instance=ExtResource( 11 )]
+position = Vector2( 962, 164 )
+scale = Vector2( 0.253621, 0.253621 )
+
+[node name="CarManager3" parent="Carros" instance=ExtResource( 10 )]
+position = Vector2( -180, 105 )
+speed = 320
+left = true
+
+[node name="Carro" parent="Carros/CarManager3" instance=ExtResource( 11 )]
+position = Vector2( 306, 443 )
+scale = Vector2( 0.253621, 0.253621 )
+
+[node name="Carro2" parent="Carros/CarManager3" instance=ExtResource( 11 )]
+position = Vector2( 519, 165 )
+scale = Vector2( 0.253621, 0.253621 )
+
+[node name="Carro3" parent="Carros/CarManager3" instance=ExtResource( 11 )]
+position = Vector2( 718, 443 )
+scale = Vector2( 0.253621, 0.253621 )
+
+[node name="Carro4" parent="Carros/CarManager3" instance=ExtResource( 11 )]
+position = Vector2( 962, 164 )
+scale = Vector2( 0.253621, 0.253621 )
+
+[node name="CarManager4" parent="Carros" instance=ExtResource( 10 )]
+position = Vector2( -71, -59 )
+speed = 212
+
+[node name="Carro" parent="Carros/CarManager4" instance=ExtResource( 11 )]
+position = Vector2( 255, 165 )
+scale = Vector2( 0.253621, 0.253621 )
+
+[node name="Carro2" parent="Carros/CarManager4" instance=ExtResource( 11 )]
+position = Vector2( 494, 167 )
+scale = Vector2( 0.253621, 0.253621 )
+
+[node name="Carro3" parent="Carros/CarManager4" instance=ExtResource( 11 )]
+position = Vector2( 737, 163 )
+scale = Vector2( 0.253621, 0.253621 )
+
+[node name="Carro4" parent="Carros/CarManager4" instance=ExtResource( 11 )]
+position = Vector2( 962, 164 )
+scale = Vector2( 0.253621, 0.253621 )
+
+[node name="Resetables" type="Node2D" parent="."]
+
+[node name="Galinha" parent="Resetables" instance=ExtResource( 2 )]
+position = Vector2( 782, 695 )
+scale = Vector2( 0.388611, 0.388611 )
+collision_layer = 3
+
+[node name="Galinha2" parent="Resetables" instance=ExtResource( 2 )]
+position = Vector2( 424, 693 )
+scale = Vector2( 0.388611, 0.388611 )
+collision_layer = 3
+player_2 = true
+
+[connection signal="body_entered" from="Finish" to="." method="_on_Finish_body_entered"]
+[connection signal="timeout" from="Delay" to="." method="_on_Delay_timeout"]
+[connection signal="dead" from="Resetables/Galinha" to="." method="_on_Galinha_dead"]
+[connection signal="dead" from="Resetables/Galinha2" to="." method="_on_Galinha_dead"]

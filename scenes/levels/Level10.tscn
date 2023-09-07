@@ -10,15 +10,9 @@
 [node name="Delay" parent="." index="8"]
 wait_time = 0.172
 
-[node name="Galinha" parent="Resetables" index="0"]
-position = Vector2( 822, 100 )
-
 [node name="Clock" parent="Resetables" index="1" instance=ExtResource( 4 )]
 position = Vector2( 822, 326 )
 carros = NodePath("../../Carros")
-
-[node name="Galinha2" parent="Resetables" index="2"]
-position = Vector2( 464, 98 )
 
 [node name="Carros" type="Node2D" parent="." index="10"]
 
@@ -48,7 +42,7 @@ position = Vector2( 964, 164 )
 scale = Vector2( 0.253621, 0.253621 )
 
 [node name="CarManager6" parent="Carros" index="1" instance=ExtResource( 3 )]
-position = Vector2( -27, 699 )
+position = Vector2( 125, -62 )
 speed = 375
 left = true
 

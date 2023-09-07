@@ -7,6 +7,7 @@ var velocity = Vector2()
 
 export var speed = 120
 export var player_2 = false
+export var singleplayer = false
 var looking = "up"
 var dead = false
 var dead_animation
@@ -29,13 +30,17 @@ func reset():
 	$AnimatedSprite.play(animations[0])
 	dead = false
 	self.set_physics_process(true)
-	if player_2:
-		position.x = 424
-		position.y = 693
+	if not singleplayer:
+		if player_2:
+			position.x = 424
+			position.y = 693
+		else:
+			position.x = 782
+			position.y = 695
 	else:
-		position.x = 782
+		position.x = 654
 		position.y = 695
-
+		
 func die():
 	if dead: return
 	dead = true
